@@ -56,7 +56,7 @@ The browser has to fix it automatically. But there may be no text inside the <ta
 
 
 <!-- Task- Create a list -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -79,5 +79,64 @@ The browser has to fix it automatically. But there may be no text inside the <ta
             ul.append(li);
         }
     </script>
+</body>
+</html> -->
+
+<!-- task- Create a tree from the object -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Tree</title>
+</head>
+<body>
+
+<div id="container"></div>
+
+<script>
+  let data = {
+    "Fish": {
+      "trout": {},
+      "salmon": {}
+    },
+    "Tree": {
+      "Huge": {
+        "sequoia": {},
+        "oak": {}
+      },
+      "Flowering": {
+        "apple tree": {},
+        "magnolia": {}
+      }
+    }
+  };
+
+  function createTree(container, data) {
+    // create a nested ul/li structure
+    function createNestedList(obj) {
+      let ul = document.createElement('ul');
+
+      for (let key in obj) {
+        let li = document.createElement('li');
+        li.textContent = key;
+
+        if (Object.keys(obj[key]).length > 0) {
+          li.appendChild(createNestedList(obj[key]));
+        }
+
+        ul.appendChild(li);
+      }
+
+      return ul;
+    }
+
+    container.appendChild(createNestedList(data));
+  }
+
+  let container = document.getElementById('container');
+  createTree(container, data); // creates the tree in the container
+</script>
+
 </body>
 </html>
