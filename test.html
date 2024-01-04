@@ -130,11 +130,29 @@
 </html> -->
 <!-- ans: 1 -->
 
-<!-- task-Tag in comment -->
+<!-- task-Tag in comment
 <script>
   let body = document.body;
 
-  body.innerHTML = "<!--" + body.tagName + "-->";
+  body.innerHTML = "< + body.tagName + "-->";
 
   alert( body.firstChild.data ); // BODY
-</script>
+</script> 
+
+<!--task-Where's the "document" in the hierarchy?  -->
+<!-- Which class does the document belong to?
+
+What’s its place in the DOM hierarchy?
+
+Does it inherit from Node or Element, or maybe HTMLElement? -->
+
+<!-- ANS
+1.alert(document); // [object HTMLDocument]
+2.The class to which document belongs is HTMLDocument. Specifically, it is an instance of the HTMLDocument interface, which inherits from the Document interface.
+3.Node interface
+Document interface
+HTMLDocument interface (inherits from Document)
+So, to answer your question about inheritance, the document inherits from the Document interface, which in turn inherits from the more general Node interface. It does not directly inherit from Element or HTMLElement.
+alert(HTMLDocument.prototype.constructor.name); // HTMLDocument
+alert(HTMLDocument.prototype.__proto__.constructor.name); // Document
+alert(HTMLDocument.prototype.__proto__.__proto__.constructor.name); // Node -->
