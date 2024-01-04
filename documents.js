@@ -42,3 +42,11 @@ form.querySelector('input')
 //6.The last input in that form
 let inputs = form.querySelectorAll('input')
 inputs[inputs.length-1]
+
+
+// instanceof to check the inheritance
+alert( document.body instanceof HTMLBodyElement ); // true
+alert( document.body instanceof HTMLElement ); // true
+alert( document.body instanceof Element ); // true
+alert( document.body instanceof Node ); // true
+alert( document.body instanceof EventTarget ); // true
