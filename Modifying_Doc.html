@@ -1,11 +1,37 @@
 <!-- // task-createTextNode vs innerHTML vs textContent -->
-<div id="elem1"></div>
+<!-- <div id="elem1"></div>
 <div id="elem2"></div>
 <div id="elem3"></div>
 <script>
   let text = '<b>text</b>';
 //   ans:
   elem1.append(document.createTextNode(text));
-  elem3.textContent = text;
+  elem3.textContent = text; -->
 
-//   Clear the element
+<!-- //  task- Clear the element -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Element</title>
+</head>
+<body>
+
+<ol id="elem">
+  <li>Hello</li>
+  <li>World</li>
+</ol>
+
+<script>
+ function clear (elem) {
+    elem.innerHTML = " "
+  }
+
+  let elem = document.getElementById('elem');
+  clear(elem); // clears the list
+</script>
+
+</body>
+</html>
+
