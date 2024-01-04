@@ -119,7 +119,7 @@
 </html> -->
 
 <!-- //task-What's in the nodeType? -->
-<html>
+<!-- <html>
 
 <body>
   <script>
@@ -127,5 +127,14 @@
   </script>
 </body>
 
-</html>
+</html> -->
 <!-- ans: 1 -->
+
+<!-- task-Tag in comment -->
+<script>
+  let body = document.body;
+
+  body.innerHTML = "<!--" + body.tagName + "-->";
+
+  alert( body.firstChild.data ); // BODY
+</script>
