@@ -83,7 +83,7 @@ The browser has to fix it automatically. But there may be no text inside the <ta
 </html> -->
 
 <!-- task- Create a tree from the object -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -139,4 +139,66 @@ The browser has to fix it automatically. But there may be no text inside the <ta
 </script>
 
 </body>
+</html> -->
+
+<!-- //task-Create a tree from the object -->
+<!DOCTYPE HTML>
+<html>
+<body>
+
+  <ul>
+    <li>Animals
+      <ul>
+        <li>Mammals
+          <ul>
+            <li>Cows</li>
+            <li>Donkeys</li>
+            <li>Dogs</li>
+            <li>Tigers</li>
+          </ul>
+        </li>
+        <li>Other
+          <ul>
+            <li>Snakes</li>
+            <li>Birds</li>
+            <li>Lizards</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Fishes
+      <ul>
+        <li>Aquarium
+          <ul>
+            <li>Guppy</li>
+            <li>Angelfish</li>
+          </ul>
+        </li>
+        <li>Sea
+          <ul>
+            <li>Sea trout</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    // Get all <li> elements
+    let lis = document.getElementsByTagName('li');
+
+    // Loop through each <li>
+    for (let li of lis) {
+      // Get the count of all <li> elements below this <li>
+      let descendantsCount = li.getElementsByTagName('li').length;
+      
+      // If there are descendants, append the count to the text node
+      if (descendantsCount > 0) {
+        li.firstChild.data += ' [' + descendantsCount + ']';
+      }
+    }
+  </script>
+
+</body>
 </html>
+
