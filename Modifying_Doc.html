@@ -1,0 +1,11 @@
+<!-- // task-createTextNode vs innerHTML vs textContent -->
+<div id="elem1"></div>
+<div id="elem2"></div>
+<div id="elem3"></div>
+<script>
+  let text = '<b>text</b>';
+//   ans:
+  elem1.append(document.createTextNode(text));
+  elem3.textContent = text;
+
+//   Clear the element
