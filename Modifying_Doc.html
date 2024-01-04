@@ -9,7 +9,7 @@
   elem3.textContent = text; -->
 
 <!-- //  task- Clear the element -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,5 +33,23 @@
 </script>
 
 </body>
-</html>
+</html> -->
 
+<!-- task-Why does "aaa" remain? -->
+<table id="table">
+    aaa
+    <tr>
+      <td>Test</td>
+    </tr>
+  </table>
+  
+  <script>
+    alert(table); // the table, as it should be
+  
+    table.remove();
+    // why there's still "aaa" in the document?
+  </script>
+
+  <!-- answer :The HTML in the task is incorrect. That’s the reason of the odd thing.
+
+The browser has to fix it automatically. But there may be no text inside the <table>: according to the spec only table-specific tags are allowed. So the browser shows "aaa" before the <table>. -->
