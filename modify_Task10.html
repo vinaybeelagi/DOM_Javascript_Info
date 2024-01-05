@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<table id="table">
+<thead>
+  <tr>
+    <th>Name</th><th>Surname</th><th>Age</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>John</td><td>Smith</td><td>10</td>
+  </tr>
+  <tr>
+    <td>Pete</td><td>Brown</td><td>15</td>
+  </tr>
+  <tr>
+    <td>Ann</td><td>Lee</td><td>5</td>
+  </tr>
+  <tr>
+    <td>...</td><td>...</td><td>...</td>
+  </tr>
+</tbody>
+</table>
+
+<script>
+  let table = document.getElementById('table');
+
+  let sortedRows = Array.from(table.tBodies[0].rows)
+    .sort((rowA, rowB) => {
+      let ageA = parseInt(rowA.cells[2].textContent);
+      let ageB = parseInt(rowB.cells[2].textContent);
+      return ageA - ageB;
+    });
+
+  table.tBodies[0].append(...sortedRows);
+</script>
