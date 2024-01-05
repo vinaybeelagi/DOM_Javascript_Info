@@ -23,14 +23,8 @@
 </table>
 
 <script>
-  let table = document.getElementById('table');
-
   let sortedRows = Array.from(table.tBodies[0].rows)
-    .sort((rowA, rowB) => {
-      let ageA = parseInt(rowA.cells[2].textContent);
-      let ageB = parseInt(rowB.cells[2].textContent);
-      return ageA - ageB;
-    });
+    .sort((rowA, rowB) => rowA.cells[0].innerHTML.localeCompare(rowB.cells[0].innerHTML));
 
   table.tBodies[0].append(...sortedRows);
 </script>

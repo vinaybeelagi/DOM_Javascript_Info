@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .notification {
+      position: fixed;
+      padding: 10px;
+      background-color: #cc0c0c;
+      color: white;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
+  <title>Show Notification</title>
+</head>
+<body>
+
+<script>
+  function showNotification(options) {
+    // Set default values if not provided
+    options = options || {};
+    options.top = options.top || 0;
+    options.right = options.right || 0;
+    options.html = options.html || '';
+    options.className = options.className || '';
+
+    // Create notification element
+    var notification = document.createElement('div');
+    notification.className = 'notification ' + options.className;
+    notification.innerHTML = options.html;
+
+    // Set position
+    notification.style.top = options.top + 'px';
+    notification.style.right = options.right + 'px';
+
+    // Append to the body
+    document.body.appendChild(notification);
+
+    // Show notification
+    notification.style.display = 'block';
+
+    // Automatically disappear after 1.5 seconds
+    setTimeout(function () {
+      notification.style.display = 'none';
+      // Remove the notification element from the DOM after it disappears
+      document.body.removeChild(notification);
+    }, 1500);
+  }
+
+  // Example usage
+  showNotification({
+    top: 10,
+    right: 10,
+    html: "Hello!",
+    className: "welcome"
+  });
+</script>
+
+</body>
+</html>
