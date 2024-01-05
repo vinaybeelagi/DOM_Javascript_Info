@@ -1,2 +1,69 @@
-<!-- task -What's the scroll from the bottom? -->
+<!-- task1 -What's the scroll from the bottom? -->
 <!-- ans : let scrollBottom = elem.scrollHeight - elem.scrollTop - elem.clientHeight; -->
+
+<!-- task2- What is the scrollbar width? -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let div = document.createElement('div');
+
+div.style.overflowY = 'scroll';
+div.style.width = '50px';
+div.style.height = '50px';
+
+// must put it in the document, otherwise sizes will be 0
+document.body.append(div);
+let scrollWidth = div.offsetWidth - div.clientWidth;
+
+div.remove();
+
+alert(scrollWidth);
+    </script>
+</body>
+</html> -->
+
+<!-- Task- Place the ball in the field center -->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    #field {
+      width: 200px;
+      border: 10px groove black;
+      background-color: #00FF00;
+      position: relative;
+    }
+
+    #ball {
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="field">
+    <img src="https://en.js.cx/clipart/ball.svg" width="40" height="40" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  </div>
+
+
+  <script>
+    // ball.offsetWidth=0 before image loaded!
+    // to fix: set width
+    ball.style.left = Math.round(field.clientWidth / 2 - ball.offsetWidth / 2) + 'px'
+    ball.style.top = Math.round(field.clientHeight / 2 - ball.offsetHeight / 2) + 'px'
+  </script>
+
+
+</body>
+
+</html>
