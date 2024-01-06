@@ -1,0 +1,39 @@
+<!-- Find window coordinates of the field -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>getBoundingClientRect Example</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #exampleElement {
+      width: 100px;
+      height: 100px;
+      background-color: #3498db;
+      position: absolute;
+      top: 50px;
+      left: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="exampleElement"></div>
+
+<script>
+  let elem = document.getElementById('exampleElement');
+  let coords = elem.getBoundingClientRect();
+
+  let answer1 = [coords.left, coords.top];
+  let answer2 = [coords.right, coords.bottom];
+
+  console.log('Upper-left corner (answer1):', answer1);
+  console.log('Bottom-right corner (answer2):', answer2);
+</script>
+
+</body>
+</html>
