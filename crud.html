@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <style>
+        /* Add some basic styling for better presentation */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Task Manager</h1>
+
+    <!-- Form to add a new task -->
+    <form id="taskForm">
+        <label for="taskInput">New Task:</label>
+        <input type="text" id="taskInput" required>
+        <button type="button" onclick="addTask()">Add Task</button>
+    </form>
+
+    <!-- Task list -->
+    <ul id="taskList">
+        <!-- Tasks will be dynamically added here -->
+    </ul>
+
+    <script>
+        // Array to store tasks
+        var tasks = [];
+
+        // Function to add a new task
+        function addTask() {
+            var taskInput = document.getElementById('taskInput');
+            var taskList = document.getElementById('taskList');
+
+            // Create a new task object
+            var task = {
+                id: tasks.length + 1,
+                text: taskInput.value
+            };
+
+            // Add the task to the array
+            tasks.push(task);
+
+            // Update the task list on the page
+            renderTasks();
+
+            // Clear the input field
+            taskInput.value = '';
+        }
+
+        // Function to render tasks on the page
+        function renderTasks() {
+            var taskList = document.getElementById('taskList');
+            taskList.innerHTML = ''; // Clear the existing list
+
+            // Loop through the tasks and create list items
+            tasks.forEach(function(task) {
+                var listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <span>${task.text}</span>
+                    <button onclick="editTask(${task.id})">Edit</button>
+                    <button onclick="deleteTask(${task.id})">Delete</button>
+                `;
+                taskList.appendChild(listItem);
+            });
+        }
+
+        // Function to edit a task
+        function editTask(id) {
+            var newText = prompt('Edit Task:', tasks.find(task => task.id === id).text);
+            
+            if (newText !== null) {
+                // Update the task text
+                tasks.find(task => task.id === id).text = newText;
+                // Render the updated tasks
+                renderTasks();
+            }
+        }
+
+        // Function to delete a task
+        function deleteTask(id) {
+            // Remove the task from the array
+            tasks = tasks.filter(task => task.id !== id);
+            // Render the updated tasks
+            renderTasks();
+        }
+    </script>
+
+</body>
+</html>
